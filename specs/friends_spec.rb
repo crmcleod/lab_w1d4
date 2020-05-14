@@ -19,7 +19,6 @@ class TestFriends < MiniTest::Test
         snacks: ["charcuterie"]
       }
     }
-
     @person2 = {
       name: "Velma",
       age: 15,
@@ -117,7 +116,12 @@ class TestFriends < MiniTest::Test
   # 7. For two given people, allow the first person to loan a given value of money to the other
   # (hint: our function will probably need 3 arguments passed to it... the lender, the lendee, and the amount for this function)
   # (hint2: You should test if both the lender's and the lendee's money have changed, maybe two assertions?)
-
+  def test_loan_money_from_one_person_to_another
+    result_lender = new_money_balance(@person5, @person1, 50 )[0]
+    result_lendee = new_money_balance(@person5, @person1, 50 )[1]
+    assert_equal(50 ,result_lender)
+    assert_equal(51, result_lendee)
+  end
 
   # 8. Find the set of everyone's favourite food joined together
   # (hint: concatenate the favourites/snack arrays together)

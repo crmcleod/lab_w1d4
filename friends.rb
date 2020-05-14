@@ -31,3 +31,18 @@ def total_of_everyones_money(people)
   end
   return total_money
 end
+
+def new_money_balance(lender, lendee, amount_to_loan)
+  #access money of lender
+  money_lenders_wallet = lender[:monies]
+  #access money of lendee
+  money_lendees_wallet = lendee[:monies]
+  #deduct amount from lender
+  new_money_lenders_balance = money_lenders_wallet - amount_to_loan
+  #add amount to lendee
+  new_money_lendees_balance = money_lendees_wallet + amount_to_loan 
+  #put those into array
+  new_amounts = [new_money_lenders_balance, new_money_lendees_balance]
+  
+  return new_amounts
+end
