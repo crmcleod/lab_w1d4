@@ -22,3 +22,12 @@ def remove_friend_from_friendlist(person, friend_to_remove)
   access_friends_list =person[:friends]
   access_friends_list -= [friend_to_remove]
 end
+
+def total_of_everyones_money(people)
+  total_money=0
+  for person in people
+    each_persons_money = person[:monies]
+    total_money += each_persons_money
+  end
+  return total_money
+end
