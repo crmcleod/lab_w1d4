@@ -3,6 +3,7 @@ require('minitest/reporters')
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require_relative( '../friends' )
+require ("pry")
 
 class TestFriends < MiniTest::Test
 
@@ -92,11 +93,21 @@ class TestFriends < MiniTest::Test
   # 4. For a given person, add a new name to their list of friends
   # (e.g. the function add_friend(@person2, "Scrappy-Doo") should add Scrappy-Doo to the friends.)
   # (hint: This function should not return anything. After the function call, check for the length of the friends array to test it!)
-
+  def test_add_friend
+    result = add_friend_to_friendlist(@person3, "Scrappy-Doo")
+    length_of_friendlist = result.length() 
+    assert_equal(3, length_of_friendlist)
+  end
 
   # 5. For a given person, remove a specific name from their list of friends
   # (hint: Same as above, testing for the length of the array should be sufficient)
-
+  def test_remove_friend
+    result = remove_friend_from_friendlist(@person3, "Velma")
+    binding.pry
+    length_of_friendlist = result.length() 
+    binding.pry
+    assert_equal(1, length_of_friendlist)
+  end
 
   # 6. Find the total of everyone's money
   # (hint: use the @people array, remember how we checked the total number of eggs yesterday?)
